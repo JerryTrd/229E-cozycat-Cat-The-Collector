@@ -299,15 +299,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This final project is for Bangkok University\u2019s GI204 course.\nCreated
-    by Team cozycat\n\nMember & Role\n\n1660701382 Korawan Aphiphunya - Game design,
-    UI design, Graphic Design, level design\n1660704733 Teradon Kamajaro  - Game
-    design, Game programming, Sound\n\n** Special thanks to all free download **\n\nAsset
-    : Asset Pack by Cup Nooble ( itch.io )\n\nUI : UI Pack by Cup Nooble ( itch.io
-    )\n\nFont : Font by Cup Nooble ( their discord giveaway )\n\nBackground : Free
-    2D Cartoon Parallax Background by CPasteGame ( assetstore.unity.com )\n\nSound
-    Effect : Character ,Shoot, Chicken ( myinstants.com )\nBackground sound :  Riding
-    Through Blue Skies by Konten_kreator ( pixabay.com )\n"
+  m_text: "This final project is for Bangkok University\u2019s GI204 course Section
+    229E .\nCreated by Team cozycat\n\nMember & Role \n\n1660701382 Korawan Aphiphunya
+    No.9 - Game design, UI design, Graphic Design, level design\n1660704733 Teradon
+    Kamajaro No.27 - Game design, Game programming, Sound\n\n** Special thanks to
+    all free download **\n\nAsset : Asset Pack by Cup Nooble ( itch.io )\n\nUI :
+    UI Pack by Cup Nooble ( itch.io )\n\nFont : Font by Cup Nooble ( their discord
+    giveaway )\n\nBackground : Free 2D Cartoon Parallax Background by CPasteGame
+    ( assetstore.unity.com )\n\nSound Effect : Character ,Shoot, Chicken ( myinstants.com
+    )\nBackground sound :  Riding Through Blue Skies by Konten_kreator ( pixabay.com
+    )\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 369dc426c301a7344b6544a36f86c575, type: 2}
   m_sharedMaterial: {fileID: -6545879283321909459, guid: 369dc426c301a7344b6544a36f86c575, type: 2}
