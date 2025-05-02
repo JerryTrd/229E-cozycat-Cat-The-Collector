@@ -185,7 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 6d03bee7f3ff2c84bb18ed7a437124f8, type: 3}
+  hitEnemySound: {fileID: 8300000, guid: bd86e556ea9713b409954133ef83a413, type: 3}
 --- !u!82 &-527694277122201777
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.099
   m_Pitch: 1
   Loop: 0
   Mute: 0

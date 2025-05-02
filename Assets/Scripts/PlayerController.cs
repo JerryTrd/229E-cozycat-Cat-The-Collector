@@ -10,24 +10,30 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
 
     [Header("Health Settings")]
-    public int maxHealth = 3;   // พลังชีวิตสูงสุด
-    public int currentHealth;     // พลังชีวิตปัจจุบัน
-    public GameObject heartContainer;  // 
-    public GameObject heartPrefab;     // 
+    public int maxHealth = 3;   
+    public int currentHealth;    
+    public GameObject heartContainer;  
+    public GameObject heartPrefab;     
 
     [Header("Audio Settings")]
-    public AudioClip deathSound;   // เสียงเมื่อเสียชีวิต
-    private AudioSource audioSource;  // 
+    public AudioClip deathSound;
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    private AudioSource audioSource;  
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
+
+    
+
 
     private Rigidbody2D rb;
     private Animator animator;
     private bool isGrounded;
     private float moveInput;
     private Vector3 originalScale;
+    private bool isWalkingSoundPlaying = false;
 
     void Start()
     {
@@ -49,6 +55,26 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
 
+        // เล่นเสียงเดิน
+        if (Mathf.Abs(moveInput) > 0.1f && isGrounded)
+        {
+            if (!isWalkingSoundPlaying && walkSound != null)
+            {
+                audioSource.clip = walkSound;
+                audioSource.loop = true;
+                audioSource.Play();
+                isWalkingSoundPlaying = true;
+            }
+        }
+        else
+        {
+            if (isWalkingSoundPlaying)
+            {
+                audioSource.Stop();
+                isWalkingSoundPlaying = false;
+            }
+        }
+
         // Flip sprite
         if (moveInput > 0)
             transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
@@ -59,6 +85,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            // เล่นเสียงกระโดด
+            if (jumpSound != null)
+            {
+                audioSource.PlayOneShot(jumpSound);
+            }
         }
 
         // Animator updates
@@ -68,6 +100,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isGrounded", isGrounded);
         }
     }
+
 
     void FixedUpdate()
     {

@@ -6,7 +6,8 @@ public class ProjectileDamage : MonoBehaviour
     private AudioSource audioSource;
 
     [Header("Sound Effects")]
-    [SerializeField] private AudioClip shootSound;  // เสียงยิงกระสุน
+    [SerializeField] private AudioClip shootSound;  
+    [SerializeField] private AudioClip hitEnemySound;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class ProjectileDamage : MonoBehaviour
 
         if (audioSource != null && shootSound != null)
         {
-            audioSource.PlayOneShot(shootSound);  // เล่นเสียงยิง
+            audioSource.PlayOneShot(shootSound); 
         }
     }
 
@@ -25,11 +26,17 @@ public class ProjectileDamage : MonoBehaviour
             EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage);  
+            }
 
+            // เล่นเสียงเมื่อกระสุนชนกับศัตรู
+            if (audioSource != null && hitEnemySound != null)
+            {
+                audioSource.PlayOneShot(hitEnemySound);  
             }
         }
 
-        Destroy(gameObject); // กระสุนหายหลังชน
+        Destroy(gameObject);
     }
 }
+
