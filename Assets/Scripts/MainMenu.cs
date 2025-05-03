@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;     // เปลี่ยนชื่อ scene 
+        Cursor.visible = true;     
     }
 
     public void Credit()

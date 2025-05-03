@@ -47,15 +47,18 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        // เพิ่มคะแนนเมื่อศัตรูตาย
-        ScoreManager.instance.AddScore(1);  // เพิ่ม 10 คะแนน (ปรับได้ตามต้องการ)
+        
+        ScoreManager.instance.AddScore(1);
 
-        if (audioSource != null && deathSound != null)
+       
+        if (deathSound != null)
         {
-            audioSource.PlayOneShot(deathSound);
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
         }
 
-        Destroy(gameObject, deathSound != null ? deathSound.length : 1f);
+        
+        Destroy(gameObject, 0.1f);  
     }
+
 
 }

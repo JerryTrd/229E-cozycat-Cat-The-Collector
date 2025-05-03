@@ -198,6 +198,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -984,7 +1010,42 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bangkok_University_28logo29_0: 1990199364976115144
+      Bangkok_University_28logo29_1: -7977128179905752259
+      Bangkok_University_28logo29_10: 5136643722271506078
+      Bangkok_University_28logo29_11: -5765487051259937157
+      Bangkok_University_28logo29_12: 6910225215197443892
+      Bangkok_University_28logo29_13: 7997474064285104379
+      Bangkok_University_28logo29_14: -8708934483506609986
+      Bangkok_University_28logo29_15: 1176261293980685899
+      Bangkok_University_28logo29_16: 9110389944837013254
+      Bangkok_University_28logo29_17: -8112218911705865665
+      Bangkok_University_28logo29_18: 1906499245072511312
+      Bangkok_University_28logo29_19: -2708125812802813696
+      Bangkok_University_28logo29_2: -7178434101555701550
+      Bangkok_University_28logo29_20: 7312534323161561311
+      Bangkok_University_28logo29_21: -5768252411916973948
+      Bangkok_University_28logo29_22: 6533701310400543577
+      Bangkok_University_28logo29_23: -5518437011255754344
+      Bangkok_University_28logo29_24: 6307057791553135338
+      Bangkok_University_28logo29_25: 1223337250335104706
+      Bangkok_University_28logo29_26: -804478724233029903
+      Bangkok_University_28logo29_27: 1222360159940388882
+      Bangkok_University_28logo29_28: 8454691053785410691
+      Bangkok_University_28logo29_29: 3199620675739758981
+      Bangkok_University_28logo29_3: 6238080077574745623
+      Bangkok_University_28logo29_30: -3218610077225392836
+      Bangkok_University_28logo29_31: 543344120907133186
+      Bangkok_University_28logo29_32: 6568697427659189461
+      Bangkok_University_28logo29_33: -4087028568730961010
+      Bangkok_University_28logo29_34: 3821420566531546328
+      Bangkok_University_28logo29_4: -3821297977775288190
+      Bangkok_University_28logo29_5: 1252009111605213554
+      Bangkok_University_28logo29_6: 3230071444532919779
+      Bangkok_University_28logo29_7: -5023726527336157331
+      Bangkok_University_28logo29_8: -642126615003983495
+      Bangkok_University_28logo29_9: 661722767856536109
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

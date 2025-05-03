@@ -28,11 +28,20 @@ public class DialogueWithSceneChange : MonoBehaviour
             dialogueBox.SetActive(true);
             dialogueText.text = message;
             nextButton.gameObject.SetActive(true);
+
+            
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
     void GoToNextScene()
     {
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         SceneManager.LoadScene("GameWin");
     }
+
 }

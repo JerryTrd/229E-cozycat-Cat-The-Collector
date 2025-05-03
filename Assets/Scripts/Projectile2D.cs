@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class Projectile2D : MonoBehaviour
 {
@@ -10,6 +9,12 @@ public class Projectile2D : MonoBehaviour
     [SerializeField] Text eggCountText;
 
     private int eggCount = 0;
+
+    void Start()
+    {
+        // หลีกเลี่ยงการชนระหว่างไข่ (Layer "Bullet") กับ Player (Layer "Player")
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Bullet"), true);
+    }
 
     void Update()
     {
@@ -46,7 +51,10 @@ public class Projectile2D : MonoBehaviour
         bullet.gravityScale = 1f;
 
         Vector2 targetPosition = targetMarker.transform.position;
-        Vector2 velocity = CalculateProjectileVelocity(shootPoint.position, targetPosition, 1f);
+        float timeToTarget = 1f; // ใช้เวลาที่คำนวณ
+
+        // คำนวณความเร็วของโปรเจกไทล์
+        Vector2 velocity = CalculateProjectileVelocity(shootPoint.position, targetPosition, timeToTarget);
         bullet.velocity = velocity;
     }
 
@@ -59,9 +67,16 @@ public class Projectile2D : MonoBehaviour
     Vector2 CalculateProjectileVelocity(Vector2 origin, Vector2 target, float time)
     {
         Vector2 distance = target - origin;
+
+        // คำนวณความเร็วในแนวนอน (X)
         float velocityX = distance.x / time;
-        float velocityY = distance.y / time + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time;
-        return new Vector2(velocityX, velocityY);
+
+        // คำนวณความเร็วในแนวดิ่ง (Y) ด้วยการพิจารณาแรงโน้มถ่วง
+        float velocityY = (distance.y + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time * time) / time;
+
+        Vector2 projectileVelocity = new Vector2(velocityX, velocityY);
+
+        return projectileVelocity;
     }
 
     void UpdateEggUI()

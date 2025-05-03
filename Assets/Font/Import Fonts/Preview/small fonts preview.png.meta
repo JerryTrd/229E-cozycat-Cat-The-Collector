@@ -138,6 +138,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -484,7 +510,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      small fonts preview_0: 5212057875871796929
+      small fonts preview_1: 1365818034287400828
+      small fonts preview_10: -3945325821117719585
+      small fonts preview_11: 8113248499494154383
+      small fonts preview_12: 8302168922727155114
+      small fonts preview_13: -6702053108635016764
+      small fonts preview_14: 2767472074397661265
+      small fonts preview_2: 2911135356608208765
+      small fonts preview_3: -1812410100114073481
+      small fonts preview_4: -1538375222395370322
+      small fonts preview_5: 6436744651754826845
+      small fonts preview_6: 3748996937633771666
+      small fonts preview_7: 5793341476040722684
+      small fonts preview_8: 6133651724446474034
+      small fonts preview_9: 3317715502943360083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Throwable
   - Enemy
+  - Water
+  - Killzone
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - UI
   - groundLayer
   - Bullet
-  - 
+  - Player
   - 
   - 
   - 

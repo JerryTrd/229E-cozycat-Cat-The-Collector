@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private AudioSource sfxSource;  
+
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
@@ -34,28 +36,34 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     private Vector3 originalScale;
     private bool isWalkingSoundPlaying = false;
+    private bool isInWater = false; 
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>(); 
         originalScale = transform.localScale;
 
-        // ตั้งค่าพลังชีวิตเริ่มต้น
+        
         currentHealth = maxHealth;
 
-        // แสดงหัวใจ
+        
         UpdateHealthUI();
 
-        // เตรียมการเล่นเสียง
+        
         audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        
         moveInput = Input.GetAxisRaw("Horizontal");
+       
 
-        // เล่นเสียงเดิน
+
+        
         if (Mathf.Abs(moveInput) > 0.1f && isGrounded)
         {
             if (!isWalkingSoundPlaying && walkSound != null)
@@ -75,25 +83,35 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Flip sprite
+       
         if (moveInput > 0)
             transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         else if (moveInput < 0)
             transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
-        // Jump input
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        
+        if (Input.GetButtonDown("Jump") && (isGrounded || isInWater))
+
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
-            // เล่นเสียงกระโดด
-            if (jumpSound != null)
+            
+            if (audioSource != null && audioSource.isPlaying)
             {
-                audioSource.PlayOneShot(jumpSound);
+                audioSource.Stop();
+                isWalkingSoundPlaying = false;
+            }
+
+            
+            if (jumpSound != null && sfxSource != null)
+            {
+                sfxSource.PlayOneShot(jumpSound);
             }
         }
 
-        // Animator updates
+
+
+        
         if (animator != null)
         {
             animator.SetFloat("Speed", Mathf.Abs(moveInput));
@@ -111,32 +129,32 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
 
-    // ฟังก์ชันลดพลังชีวิต
+   
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
-        // ตรวจเช็กพลังชีวิต
+        
         if (currentHealth <= 0)
         {
-            Die();  // เมื่อพลังชีวิตหมด
+            Die();  
         }
 
-        // อัปเดตหัวใจ
+        
         UpdateHealthUI();
     }
 
-    // ฟังก์ชันแสดงหัวใจ
+    
     void UpdateHealthUI()
     {
-        // ลบหัวใจทั้งหมดก่อน
+        
         foreach (Transform child in heartContainer.transform)
         {
             Destroy(child.gameObject);
         }
 
-        // สร้างหัวใจใหม่ตามพลังชีวิต
-        int heartsToShow = currentHealth / 1; // หัวใจ 1 ดวง 
+        
+        int heartsToShow = currentHealth / 1; 
 
         for (int i = 0; i < heartsToShow; i++)
         {
@@ -161,4 +179,32 @@ public class PlayerController : MonoBehaviour
         
          
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Killzone"))
+        {
+            TakeDamage(currentHealth);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            isInWater = true;
+        }
+        if (other.CompareTag("Killzone"))
+        {
+            TakeDamage(currentHealth); 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            isInWater = false;
+        }
+    }
+
 }
